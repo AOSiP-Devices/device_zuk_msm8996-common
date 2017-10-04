@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package org.lineageos.settings.device;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class Constants {
 
     // Intents
-    public static final String CUST_INTENT = "com.cyanogenmod.settings.device.CUST_UPDATE";
+    public static final String CUST_INTENT = "org.lineageos.settings.device.CUST_UPDATE";
 
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, String> sBooleanNodePreferenceMap = new HashMap<>();
