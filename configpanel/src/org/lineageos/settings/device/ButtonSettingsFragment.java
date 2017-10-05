@@ -17,6 +17,7 @@
 
 package org.lineageos.settings.device;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
@@ -24,6 +25,7 @@ import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.text.TextUtils;
+import android.view.MenuItem;
 
 import org.lineageos.internal.util.FileUtils;
 import org.lineageos.internal.util.PackageManagerUtils;
@@ -34,6 +36,8 @@ public class ButtonSettingsFragment extends PreferenceFragment
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.button_panel);
+        final ActionBar actionBar = getActivity().getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -86,6 +90,15 @@ public class ButtonSettingsFragment extends PreferenceFragment
                 l.setEnabled(false);
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getActivity().onBackPressed();
+            return true;
+        }
+        return false;
     }
 
     private void updatePreferencesBasedOnDependencies() {
