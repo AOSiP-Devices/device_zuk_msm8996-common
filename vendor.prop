@@ -152,3 +152,7 @@ ro.max.fling_velocity=20000
 
 #ui-trends
 sys.use_fifo_ui=1
+
+# touch optimize
+persist.vendor.qti.inputopts.enable=true
+persist.vendor.qti.inputopts.movetouchslop=0.6
