@@ -1,3 +1,8 @@
+on early-init
+    # Enable sched boost
+    write /proc/sys/kernel/sched_boost 1
+    setprop sys.io.scheduler noop
+
 on boot
     # Bring back main cores CPU 0,2
     write /sys/devices/system/cpu/cpu0/online 1
@@ -18,9 +23,6 @@ on boot
     chown system system /dev/cpuset/camera-daemon/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
-    # Enable sched boost
-    write /proc/sys/kernel/sched_boost 1
-
 on charger
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
@@ -28,9 +30,6 @@ on charger
     start thermal-engine
 
 on enable-low-power
-    # Set ioscheduler
-    setprop sys.io.scheduler "bfq"
-
     # Disable thermal hotplug to switch governor
     write /sys/module/msm_thermal/core_control/enabled 0
 
@@ -120,6 +119,9 @@ on enable-low-power
     write /proc/sys/vm/dirty_expire_centisecs 100
     write /proc/sys/vm/swappiness 5
     write /proc/sys/vm/vfs_cache_pressure 60
+
+    # Set ioscheduler
+    setprop sys.io.scheduler cfq
 
     # Update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
