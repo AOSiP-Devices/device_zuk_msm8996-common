@@ -149,3 +149,6 @@ wifi.interface=wlan0
 # for smoother scrolling and better responsiveness
 ro.min.fling_velocity=160
 ro.max.fling_velocity=20000
+
+#ui-trends
+sys.use_fifo_ui=1
