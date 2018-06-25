@@ -1,0 +1,2 @@
+# Allow CPU Float app to read GPU stats
+allow untrusted_app_25 sysfs_msm_subsys:dir search;
