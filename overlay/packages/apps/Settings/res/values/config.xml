@@ -27,7 +27,4 @@
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
-    <!-- ZUK specific -->
-    <bool name="config_use_utouch_hwkeys_binding">true</bool>
-
 </resources>
