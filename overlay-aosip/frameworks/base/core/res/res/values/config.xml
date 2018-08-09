@@ -33,7 +33,4 @@
     <!-- Whether doze feature is enabled by default in settings. -->
     <bool name="config_doze_enabled_by_default">true</bool>
 
-    <!-- ZUK specific -->
-    <bool name="config_use_utouch_hwkeys_binding">true</bool>
-
 </resources>
