@@ -19,6 +19,10 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.zuk_8996       		    u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.3-service.zuk_8996-libperfmgr            u:object_r:hal_power_default_exec:s0
 
+# Kcal
+/sys/devices/platform/kcal_ctrl.0(/.*)?			u:object_r:kcal_dev:s0
+/sys/bus/platform/drivers/kcal_ctrl(/.*)?		u:object_r:kcal_dev:s0
+
 # Misc files on /vendor
 /(vendor|system/vendor)/usr/idc(/.*)?                                u:object_r:idc_file:s0
 /(vendor|system/vendor)/usr/keylayout(/.*)?                          u:object_r:keylayout_file:s0

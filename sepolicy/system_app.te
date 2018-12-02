@@ -3,3 +3,7 @@ allow system_app shell_prop:property_service set;
 
 binder_call(system_app, wificond);
 get_prop(system_app, oem_unlock_prop);
+
+# Allow kcal to work
+allow system_app kcal_dev:dir search;
+allow system_app kcal_dev:file { write open getattr };
