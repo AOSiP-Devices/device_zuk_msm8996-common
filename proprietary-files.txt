@@ -499,7 +499,7 @@ vendor/lib64/hw/keystore.msm8996.so
 vendor/lib/hw/keystore.msm8996.so
 
 # Media - from daisy - QKQ1.191002.002 V11.0.2.0.QDLMIXM
--vendor/lib/libgpustats.so|75fc8f58b071f3c27d708010e1b40eafba091a14
+vendor/lib/libgpustats.so|75fc8f58b071f3c27d708010e1b40eafba091a14
 vendor/lib/libI420colorconvert.so|0dfd4d0e49f4250e98e781483048a296a679e05e
 vendor/lib/libmm-color-convertor.so|7c74d36d42dc79fc58afe0f4323b76cc1297d36e
 vendor/lib/libOmxAacDec.so|55772a6d0cf3e6a5a2c32348fd7096b8737d490b
@@ -516,7 +516,7 @@ vendor/lib/libOmxQcelp13Dec.so|27a75185e62e88ea84ac2448a3842c998899ae90
 vendor/lib/libOmxVideoDSMode.so|84a6b99f5ad0c7dbe827eb01258cca4c790c0fe7
 vendor/lib/libOmxWmaDec.so|c3da756ae14234ae8e56cbc0b32249fbd4c8746a
 vendor/lib/libvqzip.so|24e5eb30e5a2cdb544c8688d81d7cc75a1d85eaf
--vendor/lib64/libgpustats.so|a899ae72983277442cdacf8f43271986c91ce710
+vendor/lib64/libgpustats.so|a899ae72983277442cdacf8f43271986c91ce710
 
 # Perf - from op3 - PKQ1.181203.001
 vendor/bin/energy-awareness|3f1aa4d518ff361aa3ed9e41ace3e16d36cf0bbe
