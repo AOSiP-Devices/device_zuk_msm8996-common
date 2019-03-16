@@ -33,6 +33,18 @@ on init
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1
 
+on post-fs-data
+    # Setup permission for powerHAL
+    chown system system /dev/stune/top-app/schedtune.boost
+    chown system system /dev/cpu_dma_latency
+    chown system system /sys/class/kgsl/kgsl-3d0/force_rail_on
+    chown system system /sys/class/kgsl/kgsl-3d0/force_clk_on
+    chown system system /sys/class/kgsl/kgsl-3d0/idle_timer
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+
 on boot
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-3
@@ -117,11 +129,20 @@ on enable-low-power
     # Set perfd properties
     setprop sys.post_boot.parsed 1
 
+on property:sys.post_boot.parsed=1
+    # Setup permission for powerHAL
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
+
 on property:sys.boot_completed=1
     trigger enable-low-power
 
     # Set I/O squeduler
     setprop sys.io.scheduler "cfq"
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
 
     # update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3
