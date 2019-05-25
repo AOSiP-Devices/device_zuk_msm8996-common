@@ -76,18 +76,8 @@ on charger
     write /sys/module/msm_thermal/parameters/enabled "N"
     start thermal-engine
 
-on property:sys.post_boot.parsed=1
-    # Setup permission for powerHAL
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
-
 on enable-low-power
-    # Enable Adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
-
-    # bring back main cores CPU 0,2
+    # Bring back main cores CPU 0,2
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu2/online 1
 
