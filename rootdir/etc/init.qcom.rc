@@ -211,10 +211,6 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys5/restart_level "related"
 
 on boot
-    # U-Touch disable - KeyDisabler
-    chown system system /sys/devices/soc/soc:fpc1020/utouch_disable
-    chmod 0660 /sys/devices/soc/soc:fpc1020/utouch_disable
-
     #added touch gesture wake node permission
     chown system system /sys/devices/virtual/touch/tp_dev/gesture_on
     chmod 0660 /sys/devices/virtual/touch/tp_dev/gesture_on
@@ -248,8 +244,6 @@ on boot
     chmod 0660 /sys/devices/soc/soc:fpc1020/screen
     chmod 0660 /sys/devices/soc/soc:fpc1020/proximity_state
     chown system system /sys/devices/soc/soc:fpc1020/proximity_state
-    chmod 0660 /sys/devices/soc/soc:fpc1020/enable_wakeup
-    chown system system /sys/devices/soc/soc:fpc1020/enable_wakeup
 
     # Access permission for secure touch
     chmod 0660 /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/secure_touch_enable
